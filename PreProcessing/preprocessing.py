@@ -158,7 +158,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '-d',
         "--dur",
-        type=float,
+        type=int,
         default=2,
         help='Max duration (in seconds) of each clip')
     parser.add_argument(
