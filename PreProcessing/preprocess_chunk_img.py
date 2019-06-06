@@ -13,6 +13,8 @@ import numpy as np
 from skimage.restoration import (denoise_wavelet, estimate_sigma)
 from pydub import AudioSegment
 
+plt.rcParams.update({'figure.max_open_warning': 0})
+
 
 def padding(data, input_length):
     '''Padding of samples to make them of same length'''
