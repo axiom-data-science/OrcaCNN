@@ -12,7 +12,12 @@ import numpy as np
 
 from skimage.restoration import (denoise_wavelet, estimate_sigma)
 from pydub import AudioSegment
+import logging
 
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+# Supress matplotlib warnings
 plt.rcParams.update({'figure.max_open_warning': 0})
 
 
@@ -47,7 +52,7 @@ def mfcc(data, sampling_rate, n_mfcc):
     return data
 
 
-def pcen(data, sampling_rate):
+def apply_per_channel_energy_norm(data, sampling_rate):
     '''Compute Per-Channel Energy Normalization (PCEN)'''
     S = librosa.feature.melspectrogram(
         data, sr=sampling_rate, power=1)  # Compute mel-scaled spectrogram
@@ -89,13 +94,12 @@ def make_chunks(filename, chunk_size, sampling_rate, target_location):
 
     if f.frame_rate != sampling_rate:
         f = set_rate(f, sampling_rate)
+
     j = 0
 
-    # Make folder to maintain same directory structure
     if not os.path.exists(target_location):
         os.makedirs(target_location)
 
-    # Change to current folder
     os.chdir(target_location)
 
     # Get file name
@@ -103,16 +107,87 @@ def make_chunks(filename, chunk_size, sampling_rate, target_location):
 
     while len(f[:]) >= chunk_size * 1000:
         chunk = f[:chunk_size * 1000]
-        chunk.export(f_name[:-4] + "_" + str(j) + ".wav", format="wav")
-        print("File stored at " + f_name[:-4] + "_" + str(j) + ".wav")
+        chunk.export(f_name[:-4] + "_{:04d}.wav".format(j), format="wav")
+        logger.info("Padded file stored as " + f_name[:-4] + "_{:04d}.wav".format(j))
+        # print("File stored at " + f_name[:-4] + "_{:04d}.wav".format(j))
         f = f[chunk_size * 1000:]
         j += 1
 
     if 0 < len(f[:]) and len(f[:]) < chunk_size * 1000:
         silent = AudioSegment.silent(duration=chunk_size * 1000)
         paddedData = silent.overlay(f, position=0, times=1)
-        paddedData.export(f_name[:-4] + "_" + str(j) + ".wav", format="wav")
-        print("File stored at " + f_name[:-4] + "_" + str(j) + ".wav")
+        paddedData.export(f_name[:-4] + "_{:04d}.wav".format(j), format="wav")
+        logger.info("Padded file stored as " + f_name[:-4] + "_{:04d}.wav".format(j))
+        # print("File stored at " + f_name[:-4] + "_{:04d}.wav".format(j))
+
+
+def plot_and_save(denoised_data, f_name):
+
+    fig, ax = plt.subplots()
+
+    i = 0
+    # Add this line to show plots else ignore warnings
+    # plt.ion()
+
+    ax.imshow(denoised_data)
+    ax.get_xaxis().set_visible(False)
+    ax.get_yaxis().set_visible(False)
+    fig.set_size_inches(10, 10)
+    fig.savefig(
+        f"{f_name[:-4]}" + "_{:04d}.png".format(i),
+        dpi=80,
+        bbox_inches="tight",
+        quality=95,
+        pad_inches=0.0)
+
+    fig.canvas.draw()
+    fig.canvas.flush_events()
+    i += 1
+
+
+def standardize_and_plot(sampling_rate, file_path_image):
+    logger.info(f"All files will be resampled to {sampling_rate}Hz")
+
+    output_image_folder = "PreProcessed_image/"
+
+    for dirs, subdirs, files in os.walk(file_path_image):
+        for i, file in enumerate(files):
+            if file.endswith(('.wav', '.WAV')):
+                logger.info(f"Pre-Processing file: {file}")
+                data, sr = librosa.core.load(
+                    os.path.join(dirs, file), sr=sampling_rate, res_type='kaiser_fast')
+                target_path = os.path.join(output_image_folder, dirs)
+
+                # There is no need to apply padding since all samples are of same length
+                # apply padding
+                # padded_data = padding(data, input_length)
+
+                # TODO: mismatch of shape
+                # if use_mfcc:
+                #     mfcc_data = mfcc(padded_data, sampling_rate, n_mfcc)
+                # else:
+                #     mfcc_data = preprocessing_fn(padded_data)[:, np.newaxis]
+
+                pcen_S = apply_per_channel_energy_norm(data, sr)
+
+                denoised_data = wavelet_denoising(pcen_S)
+
+                # Get Current working directory to make parent folders
+                work_dir = os.getcwd()
+
+                if not os.path.exists(target_path):
+                    os.makedirs(target_path)
+
+                os.chdir(target_path)
+
+                # Get file name
+                f_name = os.path.basename(file)
+
+                # Plotting and Saving
+                plot_and_save(denoised_data, f_name)
+
+                # Change to parent directory to make parent sub-folders
+                os.chdir(work_dir)
 
 
 def main(args):
@@ -120,7 +195,7 @@ def main(args):
     audio_duration = args.dur
     use_mfcc = args.mfcc
     n_mfcc = args.nmfcc
-    file_path = args.classpath
+    file_path_audio = args.classpath
     chunkSize = args.chunks
 
     audio_length = sampling_rate * audio_duration
@@ -129,18 +204,19 @@ def main(args):
 
     no_of_files = len(os.listdir('.'))
 
+    output_audio_folder = "PreProcessed_audio/"
+
     # Traverse all files inside each sub-folder and make chunks of audio file
-    for dirs, subdirs, files in os.walk(file_path):
+    for dirs, subdirs, files in os.walk(file_path_audio):
         for file in files:
             if file.endswith(('.wav', '.WAV')):
-                print(f"Making chunks of size {chunkSize}s of file: {file}")
+                logger.info(f"Making chunks of size {chunkSize}s of file: {file}")
 
-                # Make chunks of data of chunk_size
-                input_file = f"{dirs}" + str("/") + file
+                input_file = os.path.join(dirs, file)
 
-                # Get Current working directory to make parent folders
-                w_d = os.getcwd()
-                output_path = "PreProcessed_audi/" + str(dirs) + str("/")
+                work_dir = os.getcwd()
+
+                output_path = os.path.join(output_audio_folder, dirs)
 
                 '''
                 CouldntDecodeError: Decoding failed. ffmpeg returned error
@@ -153,78 +229,18 @@ def main(args):
                         sampling_rate,
                         output_path)
                 except Exception as e:
-                    print(f"Exception: {e}")
+                    logger.error(f"Exception: {e}", exc_info=True)
                     pass
 
                 # Change to parent directory to make parent sub-folders
-                os.chdir(w_d)
+                os.chdir(work_dir)
 
     # file_path now directs to the path with all the audio chunks
-    file_path = "PreProcessed_audio/data"
+    file_path_image = os.path.join(output_audio_folder, file_path_audio)
 
-    print(f"Starting to load {no_of_files} data files in the directory")
-    print(f"All files will be resampled to {sampling_rate}Hz")
+    logger.info(f"Starting to load {no_of_files} data files in the directory")
 
-    for dirs, subdirs, files in os.walk(file_path):
-        for i, file in enumerate(files):
-            if file.endswith(('.wav', '.WAV')):
-                print(f"Pre-Processing file: {file}")
-                data, sr = librosa.core.load(
-                    f"{dirs}" + str("/") + file, sr=sampling_rate, res_type='kaiser_fast')
-                tar_path = "PreProcessed_image/" + str(dirs) + str("/")
-
-                # There is no need to apply padding since all samples are of same length
-                # apply padding
-                # padded_data = padding(data, input_length)
-
-                # TODO: mismatch of shape
-                # if use_mfcc:
-                #     mfcc_data = mfcc(padded_data, sampling_rate, n_mfcc)
-                # else:
-                #     mfcc_data = preprocessing_fn(padded_data)[:, np.newaxis]
-
-                # apply Per-Channel Energy Normalization
-                pcen_S = pcen(data, sr)
-
-                # apply Wavelet Denoising
-                denoised_data = wavelet_denoising(pcen_S)
-
-                # Get Current working directory to make parent folders
-                w_d = os.getcwd()
-
-                # Make folders (with sub-folders) to maintain same directory
-                # structure
-                if not os.path.exists(tar_path):
-                    os.makedirs(tar_path)
-
-                # Change to current folder
-                os.chdir(tar_path)
-
-                # Get file name
-                f_name = os.path.basename(file)
-
-                # Plotting and Saving
-                fig, ax = plt.subplots()
-
-                # Add this line to show plots else ignore warnings
-                # plt.ion()
-
-                ax.imshow(denoised_data)
-                ax.get_xaxis().set_visible(False)
-                ax.get_yaxis().set_visible(False)
-                fig.set_size_inches(10, 10)
-                fig.savefig(
-                    f"{f_name[:-4]}_{i}.png",
-                    dpi=80,
-                    bbox_inches="tight",
-                    quality=95,
-                    pad_inches=0.0)
-
-                fig.canvas.draw()
-                fig.canvas.flush_events()
-
-                # Change to parent directory to make parent sub-folders
-                os.chdir(w_d)
+    standardize_and_plot(sampling_rate, file_path_image)
 
 
 if __name__ == '__main__':
