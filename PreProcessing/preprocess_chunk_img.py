@@ -109,7 +109,6 @@ def make_chunks(filename, chunk_size, sampling_rate, target_location):
         chunk = f[:chunk_size * 1000]
         chunk.export(f_name[:-4] + "_{:04d}.wav".format(j), format="wav")
         logger.info("Padded file stored as " + f_name[:-4] + "_{:04d}.wav".format(j))
-        # print("File stored at " + f_name[:-4] + "_{:04d}.wav".format(j))
         f = f[chunk_size * 1000:]
         j += 1
 
@@ -118,7 +117,6 @@ def make_chunks(filename, chunk_size, sampling_rate, target_location):
         paddedData = silent.overlay(f, position=0, times=1)
         paddedData.export(f_name[:-4] + "_{:04d}.wav".format(j), format="wav")
         logger.info("Padded file stored as " + f_name[:-4] + "_{:04d}.wav".format(j))
-        # print("File stored at " + f_name[:-4] + "_{:04d}.wav".format(j))
 
 
 def plot_and_save(denoised_data, f_name):
