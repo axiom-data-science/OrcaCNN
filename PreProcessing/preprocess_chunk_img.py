@@ -85,6 +85,7 @@ def wavelet_denoising(data):
 
 
 def set_rate(audio, rate):
+	'''Set sampling rate'''
     return audio.set_frame_rate(rate)
 
 
@@ -102,7 +103,6 @@ def make_chunks(filename, chunk_size, sampling_rate, target_location):
 
     os.chdir(target_location)
 
-    # Get file name
     f_name = os.path.basename(filename)
 
     while len(f[:]) >= chunk_size * 1000:
@@ -157,7 +157,6 @@ def standardize_and_plot(sampling_rate, file_path_image):
                 target_path = os.path.join(output_image_folder, dirs)
 
                 # There is no need to apply padding since all samples are of same length
-                # apply padding
                 # padded_data = padding(data, input_length)
 
                 # TODO: mismatch of shape
@@ -170,7 +169,6 @@ def standardize_and_plot(sampling_rate, file_path_image):
 
                 denoised_data = wavelet_denoising(pcen_S)
 
-                # Get Current working directory to make parent folders
                 work_dir = os.getcwd()
 
                 if not os.path.exists(target_path):
@@ -178,13 +176,10 @@ def standardize_and_plot(sampling_rate, file_path_image):
 
                 os.chdir(target_path)
 
-                # Get file name
                 f_name = os.path.basename(file)
 
-                # Plotting and Saving
                 plot_and_save(denoised_data, f_name)
 
-                # Change to parent directory to make parent sub-folders
                 os.chdir(work_dir)
 
 
@@ -230,10 +225,8 @@ def main(args):
                     logger.error(f"Exception: {e}", exc_info=True)
                     pass
 
-                # Change to parent directory to make parent sub-folders
                 os.chdir(work_dir)
 
-    # file_path now directs to the path with all the audio chunks
     file_path_image = os.path.join(output_audio_folder, file_path_audio)
 
     logger.info(f"Starting to load {no_of_files} data files in the directory")
