@@ -85,7 +85,7 @@ def wavelet_denoising(data):
 
 
 def set_rate(audio, rate):
-	'''Set sampling rate'''
+    '''Set sampling rate'''
     return audio.set_frame_rate(rate)
 
 
