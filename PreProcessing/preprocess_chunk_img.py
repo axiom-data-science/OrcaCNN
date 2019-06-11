@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # coding=utf-8
 
-# Imports
-
 import os
 import argparse
 import matplotlib.pyplot as plt
@@ -19,37 +17,6 @@ logger = logging.getLogger(__name__)
 
 # Supress matplotlib warnings
 plt.rcParams.update({'figure.max_open_warning': 0})
-
-
-def padding(data, input_length):
-    '''Padding of samples to make them of same length'''
-    if len(data) > input_length:
-        max_offset = len(data) - input_length
-        offset = np.random.randint(max_offset)
-        data = data[offset:(input_length + offset)]
-    else:
-        if input_length > len(data):
-            max_offset = input_length - len(data)
-            offset = np.random.randint(max_offset)
-        else:
-            offset = 0
-        data = np.pad(data, (offset, input_length - len(data) - offset), "constant")
-    return data
-
-
-def audio_norm(data):
-    '''Normalization of audio'''
-    max_data = np.max(data)
-    min_data = np.min(data)
-    data = (data - min_data) / (max_data - min_data + 1e-6)
-    return data - 0.5
-
-
-def mfcc(data, sampling_rate, n_mfcc):
-    '''Compute mel-scaled feature using librosa'''
-    data = librosa.feature.mfcc(data, sr=sampling_rate, n_mfcc=n_mfcc)
-    # data = np.expand_dims(data, axis=-1)
-    return data
 
 
 def apply_per_channel_energy_norm(data, sampling_rate):
@@ -103,11 +70,11 @@ def make_chunks(filename, chunk_size, sampling_rate, target_location):
 
     os.chdir(target_location)
 
-    f_name = os.path.basename(filename)
+    f_name, _ = os.path.splitext(os.path.basename(filename))
 
     while len(f[:]) >= chunk_size * 1000:
         chunk = f[:chunk_size * 1000]
-        chunk.export(f_name[:-4] + "_{:04d}.wav".format(j), format="wav")
+        chunk.export(f_name + "_{:04d}.wav".format(j), format="wav")
         logger.info("Padded file stored as " + f_name[:-4] + "_{:04d}.wav".format(j))
         f = f[chunk_size * 1000:]
         j += 1
@@ -115,12 +82,11 @@ def make_chunks(filename, chunk_size, sampling_rate, target_location):
     if 0 < len(f[:]) and len(f[:]) < chunk_size * 1000:
         silent = AudioSegment.silent(duration=chunk_size * 1000)
         paddedData = silent.overlay(f, position=0, times=1)
-        paddedData.export(f_name[:-4] + "_{:04d}.wav".format(j), format="wav")
+        paddedData.export(f_name + "_{:04d}.wav".format(j), format="wav")
         logger.info("Padded file stored as " + f_name[:-4] + "_{:04d}.wav".format(j))
 
 
 def plot_and_save(denoised_data, f_name):
-
     fig, ax = plt.subplots()
 
     i = 0
@@ -128,18 +94,20 @@ def plot_and_save(denoised_data, f_name):
     # plt.ion()
 
     ax.imshow(denoised_data)
+
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
     fig.set_size_inches(10, 10)
     fig.savefig(
-        f"{f_name[:-4]}" + "_{:04d}.png".format(i),
+        f"{f_name}" + "_{:04d}.png".format(i),
         dpi=80,
         bbox_inches="tight",
         quality=95,
         pad_inches=0.0)
 
-    fig.canvas.draw()
-    fig.canvas.flush_events()
+    ax.draw_artist(ax.xaxis)
+    ax.draw_artist(ax.yaxis)
+
     i += 1
 
 
@@ -159,12 +127,6 @@ def standardize_and_plot(sampling_rate, file_path_image):
                 # There is no need to apply padding since all samples are of same length
                 # padded_data = padding(data, input_length)
 
-                # TODO: mismatch of shape
-                # if use_mfcc:
-                #     mfcc_data = mfcc(padded_data, sampling_rate, n_mfcc)
-                # else:
-                #     mfcc_data = preprocessing_fn(padded_data)[:, np.newaxis]
-
                 pcen_S = apply_per_channel_energy_norm(data, sr)
 
                 denoised_data = wavelet_denoising(pcen_S)
@@ -176,7 +138,7 @@ def standardize_and_plot(sampling_rate, file_path_image):
 
                 os.chdir(target_path)
 
-                f_name = os.path.basename(file)
+                f_name, _ = os.path.splitext(os.path.basename(file))
 
                 plot_and_save(denoised_data, f_name)
 
@@ -185,15 +147,8 @@ def standardize_and_plot(sampling_rate, file_path_image):
 
 def main(args):
     sampling_rate = args.resampling
-    audio_duration = args.dur
-    use_mfcc = args.mfcc
-    n_mfcc = args.nmfcc
     file_path_audio = args.classpath
     chunkSize = args.chunks
-
-    audio_length = sampling_rate * audio_duration
-    def preprocessing_fn(x): return x
-    input_length = audio_length
 
     no_of_files = len(os.listdir('.'))
 
@@ -251,29 +206,11 @@ if __name__ == '__main__':
         default=44100,
         help='choose sampling rate')
     parser.add_argument(
-        '-d',
-        "--dur",
-        type=int,
-        default=2,
-        help='Max duration (in seconds) of each clip')
-    parser.add_argument(
         '-s',
         "--chunks",
         type=int,
-        default=5,
+        default=3,
         help='Chunk Size for each sample to be divided to')
-    parser.add_argument(
-        '-m',
-        "--mfcc",
-        type=bool,
-        default=False,
-        help='apply mfcc')
-    parser.add_argument(
-        '-n',
-        "--nmfcc",
-        type=int,
-        default=20,
-        help='Number of mfcc to return')
 
     args = parser.parse_args()
 
