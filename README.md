@@ -72,7 +72,7 @@ resample all the audio files to a specific sampling frequency.
   - This has been implemented in [preprocessing.py](https://github.com/axiom-data-science/OrcaCNN/blob/master/PreProcessing/preprocessing.py)
 - Removing all the dead samples (negligible frequency)(if any) from the
 dataset.
-  - The `make_chunks()` method takes care of this by dividing into fixed-size chunks of size `chunkSize` specified by `-s` argument.
+  - The `make_chunks()` method takes care of this by dividing into fixed-size chunks of size `chunkSize` specified by `-s` argument. Also, by specifying the `-m` flag as `True`, we can delete audio chunks with `db < -80`.
 - Denoising: The [Spectral-Subtraction](https://doi.org/10.1109/TASSP.1979.1163209) method can be used to reduce background
 noise. This method is based on spectral averaging and residual
 noise reduction, widely used for enhancement of noisy speech
@@ -117,7 +117,8 @@ Constant Q-Transform(CQT) and Constant Wavelet Transform (CWT).
 To put all the audio samples (.wav) in a standard format as described above, assuming all the [dependencies](https://github.com/axiom-data-science/OrcaCNN/blob/master/requirements.txt) are installed, simply run
 
 ```
-python PreProcessing/preprocess_chunk_img.py [-h] -c CLASSPATH [-r RESAMPLING] [-s CHUNKS]
+preprocess_chunk_img.py [-h] -c CLASSPATH [-r RESAMPLING] [-s CHUNKS] [-m SILENT]
+
 ```
 which will produce two folders:
 - `PreProcessed_audio` with all the audio chunks of size `CHUNKS` and,

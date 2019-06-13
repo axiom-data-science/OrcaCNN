@@ -145,10 +145,25 @@ def standardize_and_plot(sampling_rate, file_path_image):
                 os.chdir(work_dir)
 
 
+def remove_silent_chunk(output_audio_folder):
+    '''Remove audio chunks with loudness (dB) < -80.0'''
+    for dirs, subdirs, files in os.walk(output_audio_folder):
+        for file in files:
+            if file.endswith(('.wav', '.WAV')):
+                f_n = os.path.join(dirs, file)
+
+                f = AudioSegment.from_wav(f_n)
+
+                if f.dBFS < -80.0:
+                    os.remove(f_n)
+                    logger.info(f"Removed audio chunk: {f_n}")
+
+
 def main(args):
     sampling_rate = args.resampling
     file_path_audio = args.classpath
     chunkSize = args.chunks
+    silent_chunks_delete = args.silent
 
     no_of_files = len(os.listdir('.'))
 
@@ -186,6 +201,9 @@ def main(args):
 
     logger.info(f"Starting to load {no_of_files} data files in the directory")
 
+    if silent_chunks_delete:
+        remove_silent_chunk(output_audio_folder)
+
     standardize_and_plot(sampling_rate, file_path_image)
 
 
@@ -211,6 +229,12 @@ if __name__ == '__main__':
         type=int,
         default=3,
         help='Chunk Size for each sample to be divided to')
+    parser.add_argument(
+        '-m',
+        "--silent",
+        type=bool,
+        default=False,
+        help='Remove silent (dB<-80) audio chunks from PreProcesses_audio')
 
     args = parser.parse_args()
 
