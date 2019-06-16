@@ -79,12 +79,6 @@ def make_chunks(filename, chunk_size, sampling_rate, target_location):
         f = f[chunk_size * 1000:]
         j += 1
 
-    if 0 < len(f[:]) and len(f[:]) < chunk_size * 1000:
-        silent = AudioSegment.silent(duration=chunk_size * 1000)
-        paddedData = silent.overlay(f, position=0, times=1)
-        paddedData.export(f_name + "_{:04d}.wav".format(j), format="wav")
-        logger.info("Padded file stored as " + f_name[:-4] + "_{:04d}.wav".format(j))
-
 
 def plot_and_save(denoised_data, f_name):
     fig, ax = plt.subplots()
@@ -105,8 +99,7 @@ def plot_and_save(denoised_data, f_name):
         quality=95,
         pad_inches=0.0)
 
-    ax.draw_artist(ax.xaxis)
-    ax.draw_artist(ax.yaxis)
+    plt.close(fig)
 
     i += 1
 
