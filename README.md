@@ -58,7 +58,7 @@ The field recordings have a lot of whale calls and as mentioned by Dan, we mainl
 - Transient (or Biggs) Killer Whales which feeds on mammals.
 - Offshore Killer Whales which prey mostly on shark. Their calls are very similar to Residents.
 
-For these 14 years of field recordings, around 16 pods exist, namingly, `AD`, `AK`, `AB`, `AN`, `PWS`, `AX`, `KF`, `KW`, `AG`, `AE`, `E`, `A`, `AY`, `AF`, `AJ` and `AS`.
+For these 14 years of field recordings, around 23 pods exist, namingly, `AD5`, `AD8`, `AD11`, `AD16`, `AK`, `AK1` (or `AK6`), `AK2`, `AB`, `AB25`, `AN10`, `AX48`, `AX32`, `AG`, `AE`, `AI`, `AY`, `AJ`, `AF4`, `AF22`, `AJ`, `AJ14`, `AJ22` and `AS`.
 
 ### Data preparation and Pre-processing
 
@@ -123,3 +123,5 @@ preprocess_chunk_img.py [-h] -c CLASSPATH [-r RESAMPLING] [-s CHUNKS] [-m SILENT
 which will produce two folders:
 - `PreProcessed_audio` with all the audio chunks of size `CHUNKS` and,
 - `PreProcessed_image` with all the spectrogram images for the audio chunks in the same directory as `CLASSPATH`.
+
+#### Note: `CLASSPATH` may contain multiple directories inside and the resulting folders will have the same directory structure.
