@@ -58,4 +58,4 @@ The field recordings have a lot of whale calls and as mentioned by Dan, we mainl
 - Transient (or Biggs) Killer Whales which feeds on mammals.
 - Offshore Killer Whales which prey mostly on shark. Their calls are very similar to Residents.
 
-For these 14 years of field recordings, around 23 pods exist, namingly, `AD5`, `AD8`, `AD11`, `AD16`, `AK`, `AK1` (or `AK6`), `AK2`, `AB`, `AB25`, `AN10`, `AX48`, `AX32`, `AG`, `AE`, `AI`, `AY`, `AJ`, `AF4`, `AF22`, `AJ`, `AJ14`, `AJ22` and `AS`.
+For these 14 years of field recordings, around 22 pods exist, namingly, `AD5`, `AD8`, `AD11`, `AD16`, `AK`, `AK1` (or `AK6`), `AK2`, `AB`, `AB25`, `AN10`, `AX48`, `AX32`, `AG`, `AE`, `AI`, `AY`, `AJ`, `AF4`, `AF22`, `AJ14`, `AJ22` and `AS`.
