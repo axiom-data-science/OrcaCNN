@@ -60,3 +60,10 @@ The CLASSPATH (or the folder named `pos_orca`) expects all the detected orca ima
   - The `pos_orca` directory contains numbered samples from the last step. All these samples are 1 second long (see Pre-Processing step).
   - If there are samples numbered from 0-4 and 9-12, then there is an orca call of `5s duration from `1st-5th second` in the long sample. The second orca call starts at 10th second and lasts till 13th second of the long sample with a total duration of 4s.
   - Hence, there are total 2 orca calls of total duration `9s`.
+
+#### Labelling Folder
+
+- The Labelling folder was created to help label orcas from a small subset of data. Initially, the dataset was huge and was not properly labelled. To tackle this, [Jesse](https://github.com/yosoyjay), my mentor, advised me this method and thankfully I was able to label the data much faster.
+
+The saved model inside the folder helped me with that.
+

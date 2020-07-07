@@ -22,6 +22,8 @@ Sufficient steps have been mentioned for each of these stages to aid in the deve
 
 The methods chosen for this project have been mentioned besides each method.
 
+##### NOTE: The deployment stage could not be completed due to time constraints. We will gladly accept pull requests for this.
+
 ### Data Description
 
 The data was given by [Dan Olsen](https://www.zegrahm.com/field-leaders/dan-olsen) from his research work. The data being around 1 TB was uploaded to a Google Cloud Bucket where the files could directly be accessed. There were several [approaches taken for transferring data to Google Colab](https://github.com/axiom-data-science/OrcaCNN/wiki/Transferring-data#approaches-taken-for-transferring-data-to-google-and-making-it-available-in-colab) and thanks to [Shane](https://github.com/shane-axiom) for writing them down graciously.
