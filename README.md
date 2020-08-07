@@ -77,7 +77,7 @@ Luckily, Dan sent over various clips containing individual pod calls, but to my 
 
 Below are some spectrogram images of how those individual pods look like when trained through my `preprocessing` script. Adding a clear description of the difference between the different calls should be much clearly understood by future developers.
 
-#### AD5
+### AD5
 
 <p align = "center">
   <img src="assets/1.png" width="30%" />
@@ -85,11 +85,11 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AD8
+### AD8
 
-#### AD11
+### AD11
 
-#### AD16
+### AD16
 
 <p align = "center">
   <img src="assets/3.png" width="30%" />
@@ -97,7 +97,7 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AK
+### AK
 
 <p align = "center">
   <img src="assets/5.png" width="30%" />
@@ -105,11 +105,11 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AK1 (or AK6)
+### AK1 (or AK6)
 
-#### AK2
+### AK2
 
-#### AB
+### AB
 
 <p align = "center">
   <img src="assets/9.png" width="30%" />
@@ -117,9 +117,9 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AB25
+### AB25
 
-#### AN10
+### AN10
 
 <p align = "center">
   <img src="assets/19.png" width="30%" />
@@ -127,7 +127,7 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AX48/AX32 (pod AX)
+### AX48/AX32 (pod AX)
 
 <p align = "center">
   <img src="assets/13.png" width="30%" />
@@ -136,7 +136,7 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 
 
-#### AG
+### AG
 
 <p align = "center">
   <img src="assets/11.png" width="30%" />
@@ -145,7 +145,7 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 
 
-#### AE
+### AE
 
 <p align = "center">
   <img src="assets/7.png" width="30%" />
@@ -153,7 +153,7 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AI
+### AI
 
 <p align = "center">
   <img src="assets/15.png" width="30%" />
@@ -161,9 +161,9 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AY
+### AY
 
-#### AJ
+### AJ
 
 <p align = "center">
   <img src="assets/17.png" width="30%" />
@@ -171,9 +171,9 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AF4
+### AF4
 
-#### AF22
+### AF22
 
 <p align = "center">
   <img src="assets/21.png" width="30%" />
@@ -181,8 +181,8 @@ Below are some spectrogram images of how those individual pods look like when tr
 </p>
 
 
-#### AJ14
+### AJ14
 
-#### AJ22
+### AJ22
 
-#### AS
+### AS
