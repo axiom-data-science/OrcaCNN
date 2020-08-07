@@ -1,6 +1,6 @@
 ### Saved models after Training
 
-This folder contains some of the models in `.h5` format that I was able to save and test after developing the Detection model. Some are even checkpoints created during training.
+This folder contains some of the models in `.h5` format that I was able to save and test after developing the Detection model. Some are even checkpoints created during training (Input dimensions are probably 200x300 as [Kunal](https://github.com/kunakl07) tested out).
 
 To make good use of these models, your data must be pre-processed in the manner my model was trained on.  Below are some examples of how the spectrograms for positive (orca) and negative (non-orca/boat noises/humpbacks) look like when pre-processed using [preprocess_chunk_img.py](https://github.com/axiom-data-science/OrcaCNN/blob/master/PreProcessing/preprocess_chunk_img.py)
 
