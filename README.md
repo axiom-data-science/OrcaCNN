@@ -79,14 +79,11 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 #### AD5
 
-<div class="row">
-  <div class="column">
-    <img src="assets/1.png"  style="width:100%">
-  </div>
-  <div class="column">
-    <img src="assets/2.png" style="width:100%">
-  </div>
-</div>
+<p float="left">
+  <img src="assets/1.png" width="100" />
+  <img src="assets/2.png" width="100" /> 
+</p>
+
 
 #### AD8
 
