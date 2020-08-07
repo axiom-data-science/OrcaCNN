@@ -60,22 +60,25 @@ The field recordings have a lot of whale calls and as mentioned by Dan, we mainl
 - Transient (or Biggs) Killer Whales which feeds on mammals.
 - Offshore Killer Whales which prey mostly on shark. Their calls are very similar to Residents.
 
-For these 14 years of field recordings, around 22 pods exist, namingly, `AD5`, `AD8`, `AD11`, `AD16`, `AK`, `AK1` (or `AK6`), `AK2`, `AB`, `AB25`, `AN10`, `AX48`, `AX32`, `AG`, `AE`, `AI`, `AY`, `AJ`, `AF4`, `AF22`, `AJ14`, `AJ22` and `AS`.
+For these 14 years of field recordings, around 22 SRKW pods exist, namingly, `AD5`, `AD8`, `AD11`, `AD16`, `AK`, `AK1` (or `AK6`), `AK2`, `AB`, `AB25`, `AN10`, `AX48`, `AX32`, `AG`, `AE`, `AI`, `AY`, `AJ`, `AF4`, `AF22`, `AJ14`, `AJ22` and `AS`.
 
 To help address false positive dectection of the presence of killer whale's due to humpback whale vocalization, the [MBARI](https://www.mbari.org/) generously provided a collection of humpback whale calls collected from the [MARS hydrophone](https://www.mbari.org/technology/solving-challenges/persistent-presence/mars-hydrophone/).
 
 
 ### Drawbacks of Classification Model:
 
-The classification model was trained on a total of `22 killer whale pods` as mentioned above. Although we were able to achieve a `66%` accuracy by training a CNN model, there were some drawbacks we faced when  moved to the testing phase.
+The classification model was trained on a total of `22 Southern Resident Killer Whale (SRKW) pods` as mentioned above. Although we were able to achieve a `66%` accuracy by training a CNN model, there were some drawbacks we faced when  moved to the testing phase.
 
 Majority of the acoustic files were named in the form like: `AS_AD_AG_FieldRecordings..` and for a duration of more than 2 mins or so containing more than 15 calls it was a difficult task to figure which of the pods appeared at which segment of the whole call duration. 
 
-- One of the (unavoidable) mistakes was to not properly have the classes labelled. For instance, for every file named `AS_AD_AG_FieldRecordings..` containing `AS`, `AD` and `AG` calls in it, the whole 1s spectrogram calls were thrown to each of the classes. Unaware of where the whale calls appear in which segment, this was the best thing to do at that point of time. We quickly realized this later.
+- One of the (unavoidable) mistakes was to not properly have the classes labelled. For instance, for every file named `AS_AD_AG_FieldRecordings..` containing `AS`, `AD` and `AG` calls in it, the whole 1s spectrogram calls were thrown to each of the classes. Unaware of where the whale calls appear in which segment, this was the best thing to do at that point of time. We quickly realized this mistake and it felt better to document it here.
 
 Luckily, Dan sent over various clips containing individual pod calls, but to my untrained eyes, it was still a challenging task.
 
-Below are some spectrogram images of how those individual pods look like when trained through my `preprocessing` script. Adding a clear description of the difference between the different calls should be much clearly understood by future developers.
+Below are some spectrogram images of how those individual pods look like when run through my `preprocessing` script. Adding a clear description of the difference between the different pod calls would be much clearly understood by future developers.
+
+#### Unavailable: AD8, AD11, AK1 (or AK6), AK2, AB25, AY, AF4, AJ14, AJ22 and AS.
+
 
 <!-- ### AD5 -->
 
@@ -91,12 +94,7 @@ Below are some spectrogram images of how those individual pods look like when tr
  </table>
 
 
-### AD8
-
-### AD11
-
 <!-- ### AD16 -->
-
 
 <table>
   <tr>
@@ -124,11 +122,6 @@ Below are some spectrogram images of how those individual pods look like when tr
  </table>
 
 
-
-### AK1 (or AK6)
-
-### AK2
-
 <!-- ### AB -->
 
 <table>
@@ -142,8 +135,6 @@ Below are some spectrogram images of how those individual pods look like when tr
   </tr>
  </table>
 
-
-### AB25
 
 <!-- ### AN10 -->
 
@@ -216,8 +207,6 @@ Below are some spectrogram images of how those individual pods look like when tr
  </table>
 
 
-### AY
-
 <!-- ### AJ -->
 
 <table>
@@ -232,8 +221,6 @@ Below are some spectrogram images of how those individual pods look like when tr
  </table>
 
 
-### AF4
-
 <!-- ### AF22 -->
 
 <table>
@@ -246,10 +233,3 @@ Below are some spectrogram images of how those individual pods look like when tr
     <td><img src="assets/22.png" width="70%"></td>
   </tr>
  </table>
-
-
-### AJ14
-
-### AJ22
-
-### AS
