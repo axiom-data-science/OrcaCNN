@@ -90,111 +90,162 @@ Below are some spectrogram images of how those individual pods look like when tr
   </tr>
  </table>
 
-AD5                        |  AD5
-:-------------------------:|:-------------------------:
-![](assets/1.png)  |  ![](assets/2.png)
-
-
-<!-- 
-  <img src="assets/1.png" width="30%" />
-  <img src="assets/2.png" width="30%" /> 
-</p> --> 
-
 
 ### AD8
 
 ### AD11
 
-### AD16
-
-<p align = "center">
-  <img src="assets/3.png" width="30%" />
-  <img src="assets/4.png" width="30%" /> 
-</p>
+<!-- ### AD16 -->
 
 
-### AK
+<table>
+  <tr>
+    <td>AD16</td>
+    <td>AD16</td>
+  </tr>
+  <tr>
+    <td><img src="assets/3.png" width="70%"></td>
+    <td><img src="assets/4.png" width="70%"></td>
+  </tr>
+ </table>
 
-<p align = "center">
-  <img src="assets/5.png" width="30%" />
-  <img src="assets/6.png" width="30%" /> 
-</p>
+
+<!-- ### AK -->
+
+<table>
+  <tr>
+    <td>AK</td>
+    <td>AK</td>
+  </tr>
+  <tr>
+    <td><img src="assets/5.png" width="70%"></td>
+    <td><img src="assets/6.png" width="70%"></td>
+  </tr>
+ </table>
+
 
 
 ### AK1 (or AK6)
 
 ### AK2
 
-### AB
+<!-- ### AB -->
 
-<p align = "center">
-  <img src="assets/9.png" width="30%" />
-  <img src="assets/10.png" width="30%" /> 
-</p>
+<table>
+  <tr>
+    <td>AB</td>
+    <td>AB</td>
+  </tr>
+  <tr>
+    <td><img src="assets/9.png" width="70%"></td>
+    <td><img src="assets/10.png" width="70%"></td>
+  </tr>
+ </table>
 
 
 ### AB25
 
-### AN10
+<!-- ### AN10 -->
 
-<p align = "center">
-  <img src="assets/19.png" width="30%" />
-  <img src="assets/20.png" width="30%" /> 
-</p>
-
-
-### AX48/AX32 (pod AX)
-
-<p align = "center">
-  <img src="assets/13.png" width="30%" />
-  <img src="assets/14.png" width="30%" /> 
-</p>
+<table>
+  <tr>
+    <td>AN10</td>
+    <td>AN10</td>
+  </tr>
+  <tr>
+    <td><img src="assets/19.png" width="70%"></td>
+    <td><img src="assets/20.png" width="70%"></td>
+  </tr>
+ </table>
 
 
-
-### AG
-
-<p align = "center">
-  <img src="assets/11.png" width="30%" />
-  <img src="assets/12.png" width="30%" /> 
-</p>
+<!-- ### AX48/AX32 (pod AX) -->
 
 
+<table>
+  <tr>
+    <td>AX48/AX32 (pod AX)</td>
+    <td>AX48/AX32 (pod AX)</td>
+  </tr>
+  <tr>
+    <td><img src="assets/13.png" width="70%"></td>
+    <td><img src="assets/14.png" width="70%"></td>
+  </tr>
+ </table>
 
-### AE
 
-<p align = "center">
-  <img src="assets/7.png" width="30%" />
-  <img src="assets/8.png" width="30%" /> 
-</p>
+<!-- ### AG -->
+
+<table>
+  <tr>
+    <td>AG</td>
+    <td>AG</td>
+  </tr>
+  <tr>
+    <td><img src="assets/11.png" width="70%"></td>
+    <td><img src="assets/12.png" width="70%"></td>
+  </tr>
+ </table>
 
 
-### AI
+<!-- ### AE -->
 
-<p align = "center">
-  <img src="assets/15.png" width="30%" />
-  <img src="assets/16.png" width="30%" /> 
-</p>
+<table>
+  <tr>
+    <td>AE</td>
+    <td>AE</td>
+  </tr>
+  <tr>
+    <td><img src="assets/7.png" width="70%"></td>
+    <td><img src="assets/8.png" width="70%"></td>
+  </tr>
+ </table>
+
+
+<!-- ### AI -->
+
+<table>
+  <tr>
+    <td>AI</td>
+    <td>AI</td>
+  </tr>
+  <tr>
+    <td><img src="assets/15.png" width="70%"></td>
+    <td><img src="assets/16.png" width="70%"></td>
+  </tr>
+ </table>
 
 
 ### AY
 
-### AJ
+<!-- ### AJ -->
 
-<p align = "center">
-  <img src="assets/17.png" width="30%" />
-  <img src="assets/18.png" width="30%" /> 
-</p>
+<table>
+  <tr>
+    <td>AJ</td>
+    <td>AJ</td>
+  </tr>
+  <tr>
+    <td><img src="assets/17.png" width="70%"></td>
+    <td><img src="assets/18.png" width="70%"></td>
+  </tr>
+ </table>
 
 
 ### AF4
 
-### AF22
+<!-- ### AF22 -->
 
-<p align = "center">
-  <img src="assets/21.png" width="30%" />
-  <img src="assets/22.png" width="30%" /> 
-</p>
+<table>
+  <tr>
+    <td>AF22</td>
+    <td>AF22</td>
+  </tr>
+  <tr>
+    <td><img src="assets/21.png" width="70%"></td>
+    <td><img src="assets/22.png" width="70%"></td>
+  </tr>
+ </table>
 
 
 ### AJ14
