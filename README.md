@@ -85,17 +85,20 @@ Below are some spectrogram images of how those individual pods look like when tr
     <td>AD5</td>
   </tr>
   <tr>
-    <td><img src="assets/1.png" width="30%"></td>
-    <td><img src="assets/2.png" width="30%"></td>
+    <td><img src="assets/1.png" width="70%"></td>
+    <td><img src="assets/2.png" width="70%"></td>
   </tr>
  </table>
 
+AD5                        |  AD5
+:-------------------------:|:-------------------------:
+![](assets/1.png)  |  ![](assets/2.png)
 
-![](assets/1.png "AD5") ![](assets/2.png "AD5")
-<!-- <p align = "center">
+
+<!-- 
   <img src="assets/1.png" width="30%" />
   <img src="assets/2.png" width="30%" /> 
-</p> -->
+</p> --> 
 
 
 ### AD8
