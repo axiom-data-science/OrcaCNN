@@ -80,8 +80,8 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AD5
 
 <p float="left">
-  <img src="assets/1.png" width="100" />
-  <img src="assets/2.png" width="100" /> 
+  <img src="assets/1.png" width="50%" />
+  <img src="assets/2.png" width="50%" /> 
 </p>
 
 
