@@ -81,10 +81,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="1.png"  style="width:100%">
+    <img src="assets/1.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="2.png" style="width:100%">
+    <img src="assets/2.png" style="width:100%">
   </div>
 </div>
 
@@ -96,10 +96,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="3.png"  style="width:100%">
+    <img src="assets/3.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="4.png" style="width:100%">
+    <img src="assets/4.png" style="width:100%">
   </div>
 </div>
 
@@ -107,10 +107,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="5.png"  style="width:100%">
+    <img src="assets/5.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="6.png" style="width:100%">
+    <img src="assets/6.png" style="width:100%">
   </div>
 </div>
 
@@ -122,10 +122,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="9.png"  style="width:100%">
+    <img src="assets/9.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="10.png" style="width:100%">
+    <img src="assets/10.png" style="width:100%">
   </div>
 </div>
 
@@ -135,10 +135,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="19.png"  style="width:100%">
+    <img src="assets/19.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="20.png" style="width:100%">
+    <img src="assets/20.png" style="width:100%">
   </div>
 </div>
 
@@ -146,10 +146,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="13.png"  style="width:100%">
+    <img src="assets/13.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="14.png" style="width:100%">
+    <img src="assets/14.png" style="width:100%">
   </div>
 </div>
 
@@ -158,10 +158,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="11.png"  style="width:100%">
+    <img src="assets/11.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="12.png" style="width:100%">
+    <img src="assets/12.png" style="width:100%">
   </div>
 </div>
 
@@ -170,10 +170,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="7.png"  style="width:100%">
+    <img src="assets/7.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="8.png" style="width:100%">
+    <img src="assets/8.png" style="width:100%">
   </div>
 </div>
 
@@ -181,10 +181,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="15.png"  style="width:100%">
+    <img src="assets/15.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="16.png" style="width:100%">
+    <img src="assets/16.png" style="width:100%">
   </div>
 </div>
 
@@ -194,10 +194,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="17.png"  style="width:100%">
+    <img src="assets/17.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="18.png" style="width:100%">
+    <img src="assets/18.png" style="width:100%">
   </div>
 </div>
 
@@ -207,10 +207,10 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 <div class="row">
   <div class="column">
-    <img src="21.png"  style="width:100%">
+    <img src="assets/21.png"  style="width:100%">
   </div>
   <div class="column">
-    <img src="22.png"  style="width:100%">
+    <img src="assets/22.png"  style="width:100%">
   </div>
 
 </div>
