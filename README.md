@@ -79,9 +79,9 @@ Below are some spectrogram images of how those individual pods look like when tr
 
 #### AD5
 
-<p float="left">
-  <img src="assets/1.png" width="30%" />
-  <img src="assets/2.png" width="30%" /> 
+<p align = "center">
+  <img src="assets/1.png" width="40%" />
+  <img src="assets/2.png" width="40%" /> 
 </p>
 
 
