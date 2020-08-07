@@ -80,8 +80,8 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AD5
 
 <p align = "center">
-  <img src="assets/1.png" width="40%" />
-  <img src="assets/2.png" width="40%" /> 
+  <img src="assets/1.png" width="30%" />
+  <img src="assets/2.png" width="30%" /> 
 </p>
 
 
@@ -92,16 +92,16 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AD16
 
 <p align = "center">
-  <img src="assets/3.png" width="40%" />
-  <img src="assets/4.png" width="40%" /> 
+  <img src="assets/3.png" width="30%" />
+  <img src="assets/4.png" width="30%" /> 
 </p>
 
 
 #### AK
 
 <p align = "center">
-  <img src="assets/5.png" width="40%" />
-  <img src="assets/6.png" width="40%" /> 
+  <img src="assets/5.png" width="30%" />
+  <img src="assets/6.png" width="30%" /> 
 </p>
 
 
@@ -112,8 +112,8 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AB
 
 <p align = "center">
-  <img src="assets/9.png" width="40%" />
-  <img src="assets/10.png" width="40%" /> 
+  <img src="assets/9.png" width="30%" />
+  <img src="assets/10.png" width="30%" /> 
 </p>
 
 
@@ -122,16 +122,16 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AN10
 
 <p align = "center">
-  <img src="assets/19.png" width="40%" />
-  <img src="assets/20.png" width="40%" /> 
+  <img src="assets/19.png" width="30%" />
+  <img src="assets/20.png" width="30%" /> 
 </p>
 
 
 #### AX48/AX32 (pod AX)
 
 <p align = "center">
-  <img src="assets/13.png" width="40%" />
-  <img src="assets/14.png" width="40%" /> 
+  <img src="assets/13.png" width="30%" />
+  <img src="assets/14.png" width="30%" /> 
 </p>
 
 
@@ -139,8 +139,8 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AG
 
 <p align = "center">
-  <img src="assets/11.png" width="40%" />
-  <img src="assets/12.png" width="40%" /> 
+  <img src="assets/11.png" width="30%" />
+  <img src="assets/12.png" width="30%" /> 
 </p>
 
 
@@ -148,16 +148,16 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AE
 
 <p align = "center">
-  <img src="assets/7.png" width="40%" />
-  <img src="assets/8.png" width="40%" /> 
+  <img src="assets/7.png" width="30%" />
+  <img src="assets/8.png" width="30%" /> 
 </p>
 
 
 #### AI
 
 <p align = "center">
-  <img src="assets/15.png" width="40%" />
-  <img src="assets/16.png" width="40%" /> 
+  <img src="assets/15.png" width="30%" />
+  <img src="assets/16.png" width="30%" /> 
 </p>
 
 
@@ -166,8 +166,8 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AJ
 
 <p align = "center">
-  <img src="assets/17.png" width="40%" />
-  <img src="assets/18.png" width="40%" /> 
+  <img src="assets/17.png" width="30%" />
+  <img src="assets/18.png" width="30%" /> 
 </p>
 
 
@@ -176,8 +176,8 @@ Below are some spectrogram images of how those individual pods look like when tr
 #### AF22
 
 <p align = "center">
-  <img src="assets/21.png" width="40%" />
-  <img src="assets/22.png" width="40%" /> 
+  <img src="assets/21.png" width="30%" />
+  <img src="assets/22.png" width="30%" /> 
 </p>
 
 
