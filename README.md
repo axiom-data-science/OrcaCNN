@@ -77,12 +77,24 @@ Luckily, Dan sent over various clips containing individual pod calls, but to my 
 
 Below are some spectrogram images of how those individual pods look like when trained through my `preprocessing` script. Adding a clear description of the difference between the different calls should be much clearly understood by future developers.
 
-### AD5
+<!-- ### AD5 -->
 
-<p align = "center">
+<table>
+  <tr>
+    <td>AD5</td>
+    <td>AD5</td>
+  </tr>
+  <tr>
+    <td><img src="assets/1.png" width="30%"></td>
+    <td><img src="assets/2.png" width="30%"></td>
+  </tr>
+ </table>
+
+
+<!-- <p align = "center">
   <img src="assets/1.png" width="30%" />
   <img src="assets/2.png" width="30%" /> 
-</p>
+</p> -->
 
 
 ### AD8
