@@ -9,6 +9,7 @@ main = Blueprint('main', __name__)
 @main.route('/')
 @main.route('/home')
 def home():
+    os.makedirs("uploads/", exist_ok=True)
     return render_template('home.html')
 
 
