@@ -6,7 +6,7 @@ services:
     restart: always
     build: ./app
     expose: 
-      - 660
+      - 8080
   
   nginx:
     container_name: nginx
