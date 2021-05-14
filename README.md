@@ -81,7 +81,7 @@ To help in prediction, 4 ML models exist inside the `app/models` directory.
 Simply running the bash script `run.sh` will get everything running using [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/)
 
 ```
-bash run.sh
+sudo bash run.sh
 ```
 
 #### Windows 10
