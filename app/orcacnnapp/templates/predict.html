@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="static/css/main.css"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js" charset="utf-8"></script>
+        
+        <script>
+            $(document).ready(function() {
+                $('img').unveil();
+            });
+        </script>
+    <div class="window">
+        <div class="terminal">
+        <h2 class="command">Below are the spectrogram images we've predicted as orcas.</h2>
+        </div>
+    
+    </div>  
+
+    </head>
+    <body>
+        {% for image in images %}
+        <div class="content_img">
+        <a class="image" href="{{ image.src }}" style="width: {{ image.width }}px; height: {{ image.height }}px">
+            <img src="{{ image.src }}" data-src="{{ image.src }}?w={{ image.width }}&amp;h={{ image.height }}" width="{{ image.width }}" height="{{ image.height }}" />
+        <div class="btn btn-primary ">{{ image.src[9:] }}</div>
+        </a>
+         
+        </div>
+    {% endfor %}
+
+    
+    </body>
+
+{% endblock content %}

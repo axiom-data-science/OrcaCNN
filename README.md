@@ -22,7 +22,6 @@ Sufficient steps have been mentioned for each of these stages to aid in the deve
 
 The methods chosen for this project have been mentioned besides each method.
 
-##### NOTE: The deployment stage could not be completed due to time constraints. We will gladly accept pull requests for this.
 
 ### Data Description
 
@@ -64,6 +63,51 @@ These 14 years of field recordings include 22 resident pods (salmon specialists)
 
 To help address false positive dectection of the presence of killer whale's due to humpback whale vocalization, the [MBARI](https://www.mbari.org/) generously provided a collection of humpback whale calls collected from the [MARS hydrophone](https://www.mbari.org/technology/solving-challenges/persistent-presence/mars-hydrophone/).
 
+
+## Deployment
+
+With #39, a basic web-app using Flask has been added with uWSGI as web server and Nginx as a reverse proxy in front of uWSGI.
+
+<p align = "center">
+<img src = assets/23.png>
+</p>
+
+To help in prediction, 4 ML models exist inside the `app/models` directory. 
+
+### Running with Docker (Recommended):
+
+#### Ubuntu 20.04
+
+Simply running the bash script `run.sh` will get everything running using [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/)
+
+```
+sudo bash run.sh
+```
+
+#### Windows 10
+
+Once the docker engine is running, use the following commands:
+
+```
+docker-compose build
+docker-compose up
+```
+
+You should now have a `orcacnn` app running in Docker Desktop. Open the nginx (`orcacnn_nginx`) container to browse the web-app on your machine.
+
+### Running locally:
+
+With all `requirements.txt` in place with Python 3.8+,
+
+```
+pip3 install -r requirements.txt
+```
+
+In the `app` directory, run the app using
+
+```
+python3 run.py
+```
 
 ### Drawbacks of Classification Model:
 
@@ -233,3 +277,4 @@ Below are some spectrogram images of how those individual pods look like when ru
     <td><img src="assets/22.png" width="70%"></td>
   </tr>
  </table>
+

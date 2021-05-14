@@ -1,0 +1,15 @@
+flask
+librosa
+llvmlite
+matplotlib
+numpy
+scikit-image
+scipy
+soundfile
+pydub
+keras
+scikit-learn
+tensorflow
+uwsgi
+werkzeug
+

@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action = "{{url_for('main.get_input_image')}}" method = "POST" enctype="multipart/form-data" class="dropzone">
+	<input type="file" name="audio_file" id="file">
+	<input type="submit" value = "Upload audio file"> 
+</form>
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="static/css/main.css"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js" charset="utf-8"></script>
+        
+        <script>
+            $(document).ready(function() {
+                $('img').unveil();
+            });
+        </script>
+    <div class="window">
+        <div class="terminal">
+        <h2 class="command">Below are the spectrogram images we've generated.</h2>
+            <p class="command"> Click on predict to detect which of them are orcas. </p>
+        </div>
+    
+    </div>  
+    <form action = "{{url_for('predict_from_model.predict_from_model')}}" method = "POST" enctype="multipart/form-data">
+	    <button type="submit" class="btn btn-block btn-primary btn-large">Predict</button>
+    </form>
+    
+    </head>
+    <body>
+        {% for image in images %}
+        <div class="content_img">
+        <a class="image" href="{{ image.src }}" style="width: {{ image.width }}px; height: {{ image.height }}px">
+            <img src="{{ image.src }}" data-src="{{ image.src }}?w={{ image.width }}&amp;h={{ image.height }}" width="{{ image.width }}" height="{{ image.height }}" />
+        <div class="btn btn-primary ">{{ image.src[46:] }}</div>
+        </a>
+         
+        </div>
+    {% endfor %}
+
+    
+    </body>
+
+{% endblock content %}
