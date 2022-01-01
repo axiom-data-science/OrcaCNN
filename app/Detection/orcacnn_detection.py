@@ -6,14 +6,14 @@ import os
 import argparse
 import logging
 import logging.config
-from keras import optimizers
-from keras.preprocessing.image import ImageDataGenerator
-from keras.layers import Dropout, Flatten, Dense, Activation
-from keras.callbacks import ReduceLROnPlateau, ModelCheckpoint
-from keras.models import Sequential
-from keras.layers import Conv2D
-from keras.layers import Activation, Dropout, Flatten, Dense
-from keras import backend as K
+from tensorflow.keras import optimizers
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.layers import Dropout, Flatten, Dense, Activation
+from tensorflow.keras.callbacks import ReduceLROnPlateau, ModelCheckpoint
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D
+from tensorflow.keras.layers import Activation, Dropout, Flatten, Dense
+from tensorflow.keras import backend as K
 
 # Disable PIL.PngImagePlugin DEBUG logs
 logging.config.dictConfig({

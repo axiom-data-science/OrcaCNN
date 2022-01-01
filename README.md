@@ -78,7 +78,7 @@ To help in prediction, 4 ML models exist inside the `app/models` directory.
 
 #### Ubuntu 20.04
 
-Simply running the bash script `run.sh` will get everything running using [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/)
+Simply executing the bash script `run.sh` will get everything running using [BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) at `localhost:80`.
 
 ```
 sudo bash run.sh

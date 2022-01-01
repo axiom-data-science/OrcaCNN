@@ -6,9 +6,9 @@ import os
 import logging
 import argparse
 from tensorflow.keras.models import load_model
-from keras.preprocessing import image
+from tensorflow.keras.preprocessing import image
 import numpy as np
-from keras.preprocessing.image import img_to_array
+from tensorflow.keras.preprocessing.image import img_to_array
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -43,9 +43,11 @@ def predict(model_path, test_path):
 
     # stack up images list to pass for prediction
     # images = np.vstack(images)
-
-    classes = model.predict_classes(data, batch_size=32)
-
+    
+    # classes = model.predict_classes(data)
+    
+    classes = (model.predict(data) > 0.5).astype("int32")
+    
     f = []
     for i in os.listdir(folder_path):
         f.append(i)
