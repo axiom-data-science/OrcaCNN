@@ -47,7 +47,7 @@ TESTPATH
 predict.py [-h] -m MODELPATH -c TESTPATH
 
 ```
-where MODELPATH is the path to the saved model weights after training and TESTPATH is the directory containing your pre-processed orca images. These spectrogram images are first **renamed from 0 to N-1** to help find the start and end time of orca calls. The images are then fed to the model and the predicted orca samples are saved in a new folder `pos_orca` within the same directory.
+where MODELPATH is the file path to the saved model weights or a directory path to multiple saved model weights after training and TESTPATH is the directory containing your pre-processed orca images. These spectrogram images are first **renamed from 0 to N-1** to help find the start and end time of orca calls. The images are then fed to the model and the predicted orca samples are saved in a new folder `pos_orca` within the same directory. A csv file named `predictions.csv` labelling which examples were predicted with high confidence and low confidence by the model(s) will also be saved to the `pos_orca` folder.
 
 - Determine start and end time of orca in the audio sample:
 

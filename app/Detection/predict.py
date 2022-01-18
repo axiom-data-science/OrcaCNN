@@ -5,6 +5,8 @@ import shutil
 import os
 import logging
 import argparse
+import csv
+from itertools import zip_longest
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
@@ -14,19 +16,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def predict(model_path, test_path):
-    folder_path = test_path
-    model_path = model_path
-
-    img_width, img_height = 200, 300
-
-    model = load_model(model_path)
-
-    # images = []
-
+def generate_predictions(model_path, folder_path):
     '''
     Stacking images eats up RAM much faster: https://hjweide.github.io/efficient-image-loading
     '''
+    img_width, img_height = 200, 300
     N = sum(len(files) for _, _, files in os.walk(folder_path))
     data = np.empty((N, img_width, img_height, 3), dtype=np.uint8)
 
@@ -39,16 +33,38 @@ def predict(model_path, test_path):
             # images.append(img)
             data[i, ...] = img
 
+    if os.path.isfile(model_path):
+        model = load_model(model_path)
+        classes = (model.predict(data) > 0.5).astype("int32")
+    elif os.path.isdir(model_path):
+        scores = np.zeros((N, 1))
+        for model_name in os.listdir(model_path):
+            model = load_model(os.path.join(model_path, model_name))
+            scores += (model.predict(data) > 0.5).astype("int32")
+        classes = scores / len(os.listdir(model_path))
+        classes[classes < 0.5] = 0
+        classes[classes >= 0.5] = 1
+        classes = classes.astype("int32")
+    else:
+        raise ValueError(f"Path provided, {model_path}, is not a valid path!")
+
+    return classes
+
+
+def predict(model_path, test_path):
+    folder_path = test_path
+    model_path = model_path
+
     logger.info("Starting Prediction")
 
+    classes = generate_predictions(model_path, folder_path)
+
     # stack up images list to pass for prediction
+    # images = []
     # images = np.vstack(images)
-    
     # classes = model.predict_classes(data)
-    
-    classes = (model.predict(data) > 0.5).astype("int32")
-    
-    f = []
+
+    f, pos, negs = [], [], []
     for i in os.listdir(folder_path):
         f.append(i)
 
@@ -57,7 +73,17 @@ def predict(model_path, test_path):
 
         os.makedirs("pos_orca", exist_ok=True)
         if classes[i][0] == 1:
+            pos.append(f[i])
             shutil.copy(f_n, 'pos_orca')
+        else:
+            negs.append(f[i])
+
+    with open(os.path.join("pos_orca", "predictions.csv"), "w+") as f:
+        writer = csv.writer(f)
+        writer.writerow(["high_confidence", "low_confidence"])
+        for values in zip_longest(*[pos, negs]):
+            writer.writerow(values)
+
     logger.info(
         f"Detected {sum(len(files) for _, _, files in os.walk('pos_orca'))} orca calls")
 
