@@ -2,7 +2,7 @@ librosa==0.6.1
 matplotlib==2.2.2
 numpy==1.15.4
 scikit-image==0.15.0
-scipy==1.2.1
+scipy==1.10.0
 pydub==0.23.1
 keras==2.2.4
 scikit-learn==0.20.1
